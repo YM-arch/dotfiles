@@ -1,0 +1,9 @@
+[user]
+	name = YM-arch
+	email = interstellar404notfound@gmail.com
+[core]
+	editor = code --wait
+[init]
+	defaultBranch = main
+[color]
+	ui = auto

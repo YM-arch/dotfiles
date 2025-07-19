@@ -1,0 +1,31 @@
+- defaults:
+    link:
+      relink: true  # 如果链接已存在，则强制重新创建，确保链接总是最新的
+      create: true  # 如果目标目录的上级目录不存在，则自动创建
+
+- clean: ['~']
+
+# ----------------------------------------
+# 核心配置链接
+# ----------------------------------------
+- link:
+    ~/.bash_logout: bash_logout
+    ~/.bashrc: bashrc
+    ~/.profile: profile
+    ~/.gitconfig: gitconfig
+    ~/.tmux.conf: tmux.conf
+    ~/.blerc: blerc
+    ~/.hushlogin: hushlogin
+
+# ----------------------------------------
+# 创建必要的目录
+# ----------------------------------------
+- create:
+    - ~/Downloads
+    - ~/.vim/undo-history # 为 vim 创建一个存放撤销历史的目录
+
+# ----------------------------------------
+# 执行自动化脚本
+# ----------------------------------------
+- shell:
+    - [git submodule update --init --recursive, "更新 Dotbot 及其他子模块"]
