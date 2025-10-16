@@ -3,7 +3,7 @@
 # for examples
 
 # 配置ble.sh
-[[ $- == *i* ]] && source -- ~/.local/share/blesh/out/ble.sh --attach=none
+# [[ $- == *i* ]] && source -- ~/.local/share/blesh/out/ble.sh --attach=none
 
 # If not running interactively, don't do anything
 case $- in
@@ -133,4 +133,5 @@ alias motd='run-parts --lsbsysinit /etc/update-motd.d'
 
 eval "$(starship init bash)"
 
-[[ ! ${BLE_VERSION-} ]] || ble-attach
+#[[ ! ${BLE_VERSION-} ]] || ble-attach
+. "$HOME/.cargo/env"
