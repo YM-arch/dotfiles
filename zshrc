@@ -21,6 +21,9 @@ plugins=(
 # Oh My Zsh 核心加载
 source $ZSH/oh-my-zsh.sh
 
+# starship配置
+eval "$(starship init zsh)"
+
 
 # 环境变量
 export EDITOR='nano'
@@ -33,9 +36,18 @@ export LC_ALL='zh_CN.UTF-8'
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 
+# --- Proxy Settings (Reliable Method) ---
+export host_ip=$(ip route | grep default | awk '{print $3}')
+export proxy_port=7897
+
+export http_proxy="http://${host_ip}:${proxy_port}"
+export https_proxy="http://${host_ip}:${proxy_port}"
+export all_proxy="socks5://${host_ip}:${proxy_port}"
+
 # 别名配置
 
 # 系统相关
+alias motd='run-parts --lsbsysinit /etc/update-motd.d'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -120,3 +132,4 @@ bindkey "^[[1;5D" backward-word
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+. "$HOME/.cargo/env"
