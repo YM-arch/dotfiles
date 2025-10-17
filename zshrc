@@ -12,6 +12,7 @@ plugins=(
   zsh-autosuggestions
   colored-man-pages
   extract
+  z
   sudo
   web-search
   copypath
