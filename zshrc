@@ -3,7 +3,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 #
 # robbyrussell , agnoster , powerlevel10k
-ZSH_THEME="powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 #
 plugins=(
